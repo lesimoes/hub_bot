@@ -8,7 +8,9 @@ const ClientSchema = new mongoose.Schema({
   alias: String,
   name: String,
   api_token: String,
-  intents: [IntentSchema]
+  intents: [IntentSchema],
+  user: {type: String, select: false},
+  pass: {type: String, select: false}
 });
 
 mongoose.model('Client', ClientSchema)
