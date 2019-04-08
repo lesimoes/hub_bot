@@ -10,11 +10,10 @@ const Intent = mongoose.model('Intent');
 router.use(bodyParser.json())
 
 router.use(async (req, res, next) => {
-  let token = req.baseUrl.split('/')[2]
-  let client = await Client.findOne({"api_token" : token})
+
+  let client = await Client.findOne({"_id" : req.app._id})
 
   req.app = {
-    token: token,
     client: client
   }
 
