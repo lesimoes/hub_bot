@@ -27,7 +27,29 @@ router.get('/list', async (req, res, next) => {
   return res.send(req.app.client.intents)
 })
 
-router.post('/new_intent', async (req, res, next) => {
+router.get(`/:id`, async (req, res, next) => {
+  if(!mongoose.Types.ObjectId.isValid(req.params.id))
+    return res.status(404).send({error: 'Intent not founded'})
+
+  let client = await Client.findOne({"intents._id" : req.params.id}, {"intents.$":1})
+
+  if(!client)
+    return res.status(404).send({error: 'Intent not founded'})
+
+  return res.status(200).send(client.intents[0])
+
+})
+
+router.put('/update/:id', async (req, res, next) => {
+  if(!mongoose.Types.ObjectId.isValid(req.params.id))
+    return res.status(404).send({error: 'Intent not founded'})
+
+  let client = await Client.findOne({"intents._id" : req.params.id}, {"intents.$":1})
+  
+
+})
+
+router.post('/create', async (req, res, next) => {
 
   req.app.client.intents.push(req.body)
   req.app.client.save()
