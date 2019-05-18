@@ -28,7 +28,7 @@ Need a Bearer Authorization.
 
 *** Create new Intent ***
 </br>
-url: `http://localhost:3000/api/pluri/intent/new_intent`
+url: `http://localhost:3000/api/pluri/intent/create`
 body:`{
     "active": true,
     "sentences": ["Paraaa com isso", "Eu pego café pra vc"],
@@ -36,6 +36,22 @@ body:`{
     "title": "Fourth"
   }`
 
+
+
+*** Create new chat_id ***
+</br>
+method `GET`
+url: `http://localhost:3000/api/pluri/chat/create`
+
+
+*** Create new message on chat_id ***
+</br>
+method `POST`
+url: `http://localhost:3000/api/pluri/chat/create`
+body:`{
+	"message": "my message",
+	"role": "client"
+}`
 
 
 
