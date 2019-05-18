@@ -1,18 +1,35 @@
 const _filter = 0.5;
-// const path_database = '../../database/base';
 
-const init = (text, base) => {
-  const answer = 'penis';
+const generateGrams = text => text.toLowerCase().match(/[\s\S]{1,3}/g) || [];
 
-  exec_grams(text, base);
-  response = base.filter((value) => {
-    if (value.similarity >= _filter) { return value; }
-  });
-  if (response.length != 0) { return response; }
-  return answer;
+const precision = (grams, text) => {
+  let cont = 0;
+  for (const i in text) {
+    for (const x in grams) {
+      if (text[i] == grams[x]) { cont++; }
+    }
+  }
+  return cont / text.length;
 };
 
-let exec_grams = (text, base) => {
+const maxValue = (max, cur) => Math.max(max, cur);
+
+const compareSimilarity = (a, b) => {
+  if (a.similarity < b.similarity) return 1;
+  if (a.similarity > b.similarity) return -1;
+  return 0;
+};
+
+const compareGrams = (grams, base) => {
+  base.forEach((value) => {
+    value.similarity = value.grams
+      .map(intent => precision(intent, grams))
+      .reduce(maxValue, -Infinity);
+  });
+  base.sort(compareSimilarity);
+};
+
+let execGrams = (text, base) => {
   const grams = generateGrams(text);
   base.forEach((value) => {
     value.grams = [];
@@ -23,33 +40,15 @@ let exec_grams = (text, base) => {
   compareGrams(grams, base);
 };
 
-let generateGrams = text => text.toLowerCase().match(/[\s\S]{1,3}/g) || [];
+const init = (text, base) => {
+  const answer = 'DEFAULT';
 
-let compareGrams = (grams, base) => {
-  base.forEach((value) => {
-    value.similarity = value.grams
-      .map(intent => precision(intent, grams))
-      .reduce(maxValue, -Infinity);
+  execGrams(text, base);
+  const response = base.filter((value) => {
+    if (value.similarity >= _filter) { return value; }
   });
-  base.sort(compareSimilarity);
-};
-
-let precision = (grams, text) => {
-  let cont = 0;
-  for (const i in text) {
-    for (const x in grams) {
-      if (text[i] == grams[x]) { cont++; }
-    }
-  }
-  return cont / text.length;
-};
-
-let maxValue = (max, cur) => Math.max(max, cur);
-
-let compareSimilarity = (a, b) => {
-  if (a.similarity < b.similarity) return 1;
-  if (a.similarity > b.similarity) return -1;
-  return 0;
+  if (response.length !== 0) { return response; }
+  return answer;
 };
 
 module.exports = init;
