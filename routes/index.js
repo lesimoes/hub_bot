@@ -23,6 +23,7 @@ router.use(async (req, res, next) => {
   try {
     const result = await auth.validate(token);
     req.app._id = result._id;
+    req.app.alias = result.alias;
     req.app.result = result;
     return next();
   } catch (e) {
