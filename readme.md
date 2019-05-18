@@ -3,28 +3,31 @@
 
 1- Install mongodb</br>
 2- Execute: `npm i`</br>
-3- Execute: `node index.js`</br>
 
 ### How to run
 
-Execute: `nodemon app.js`
+1- Start mongodb server </br>
+2- Run `npm run watch`
 
 
 ### Routes
 
-*** Generate a token *** </br>
+*** Generate a token ***
+</br>
 url: `http://localhost:3000/adm/auth`</br>
 body: `{
 	"alias":"pluri",
 	"password":"tendi123"
 }`
 
-*** List all Intents *** </br>
+*** List all Intents ***
+</br>
 url: `http://localhost:3000/api/pluri/intent/list`
 
 Need a Bearer Authorization.
 
 *** Create new Intent ***
+</br>
 url: `http://localhost:3000/api/pluri/intent/new_intent`
 body:`{
     "active": true,
@@ -33,7 +36,7 @@ body:`{
     "title": "Fourth"
   }`
 
-Need a Bearer Authorization.
+
 
 
 :tada:
