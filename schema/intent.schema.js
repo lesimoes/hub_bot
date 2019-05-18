@@ -5,9 +5,9 @@ const IntentSchema = new mongoose.Schema({
   active: Boolean,
   title: String,
   sentences: [String],
-  responses: [String]
+  responses: [String],
 });
 
-mongoose.model('Intent', IntentSchema)
+mongoose.model('Intent', IntentSchema);
 
-module.exports = IntentSchema
+module.exports = IntentSchema;

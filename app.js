@@ -1,14 +1,15 @@
-require('dotenv').config()
-const express = require('express')
+require('dotenv').config();
+const express = require('express');
+
 const app = express();
 
 app.use(require('./routes'));
 
 app.use((req, res, next) => {
-  let err = new Error('Route not found');
+  const err = new Error('Route not found');
   err.status = 404;
-  next(err)
-})
+  next(err);
+});
 
 // app.use((err, req, res, next) => {
 //   res.status(err.status || 500);
@@ -18,4 +19,4 @@ app.use((req, res, next) => {
 //   }});
 // });
 
-app.listen(process.env.PORT, () => console.log('Hell on ', process.env.PORT))
+app.listen(process.env.PORT, () => console.log('Hell on ', process.env.PORT));
