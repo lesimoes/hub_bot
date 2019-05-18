@@ -3,19 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "start": "node app.js",
-  "watch": "nodemon app.js",
   "scripts": {
+    "start": "node app.js",
+    "watch": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^7.0.0",
-    "express": "^4.16.4",
-    "jsonwebtoken": "^8.5.1",
-    "jwt-simple": "^0.5.6",
-    "moment": "^2.24.0",
-    "mongoose": "^5.4.22"
+    "dotenv": "7.0.0",
+    "express": "4.16.4",
+    "jsonwebtoken": "8.5.1",
+    "jwt-simple": "0.5.6",
+    "moment": "2.24.0",
+    "mongoose": "5.4.22"
+  },
+  "devDependencies": {
+    "jest": "24.8.0"
   }
 }
