@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "multihub-5b105",
+  "private_key_id": "aecec3c7ef9bdc026254028645930d0b08b1c3ea",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDGXKXAgYA9Hyj7\nPUstgx41Zq1QCzXb5xIxkbMg5AoZBSwq9oZzYc+zifBGTvy5KGchiqnH+4RqCUw/\ni7+yDLVpLRmrhVHd/ioSJIFQGYaw8XG46sdWrgFdvM08nzysfEnBSy0R95bSzNRQ\n6N+KJ9RcjXsdq4HTnXoRvB6qbsnyNaVHo190Pg7YP9YCcTq8Pr0TNqy27GVGrc9j\nTSYpb5YQMReOZzW4RizNZEQih70rbKpb1zdRlh4NkcikjgwSUhcITnvdOPinWWJf\n6btUCmB3yyJA1oP0UJODNY97jzGTq4dxeN7cYTbhTtVMd8TskrpRB2HChUNBak47\nXVZvKlolAgMBAAECggEAAusm2oOVzmF8UnpHmFtM/OKOZfz3cAkg/6rHRL0nRr9/\n72YopVbCjOo+65a1ZXt/gG3FmkVDxxhs/j4YrY6CUAFRVtbbELXoYAag8YQ7bpJB\nAIANbsogoWsdM4tog8vY45BAIgwTmvVXf7cgo/BHa1l2XKyYRPO/aRz9msigHvi1\ngWH8ty2/khbSHXJCbKUlEbuuZOQ8t+6wdG0PXxTD08vYFhsD+gYq8TeeUdYr/ylc\nA4kLd0NiSwOf2HSsQIQIBji+KkNTrvovwcVdEHB37GZbYqjp0XpCu74qj2zMSrGL\nvenscGrmwO8d/jhZvoEHxty5WXp9FH1SDb37P/tAAQKBgQD1NJJeARImzjnc+5qK\ndOm28yTeBN8MgDsc95JVmZYFWoscvd7yLBlRT8jUo5gHevn6ikYFEgaR83eqt6/W\nFoKE2svr/m6IiS9HPPFQDJ1oRcN1nWL5vYK6TQLDxMU0wPh7I5TFrXwVziyKntoY\nHIzwByaQpQzbBbbyxhCpItnn4QKBgQDPGCgqWAodUjztan3NdFTaGsXhO9TZOcqF\n+656pfkTiLWD7OB9ZTv2sruO98wJgyHYAX+e6O2Tm1zlwyxAyHqdDHTv6/zS54I6\nyz1CYCbI4qDLGB2JcA62fDCOVffeO3xiQMa69/2Pxfb3R2aa2efN21+gviaGPS/r\nxyGCy3AqxQKBgBM7ME+XHelVO0yNny1Exh/HKhkPoL7GP9yhviRgi1eYJlj2u0mb\nE9FAxKuIuR+9EWYI+jzjkQhZZAVLqsrLsSjiUCQOLHUg7UhVC0gP9Th8YDwVP/H+\nXwZli9X21NCyYcqmm8B1PsonBW9Jzikd9B/PL8MgbsWuyQ55Yk0hop2BAoGAZkM9\ngjtbM0NqxqnxWUT6qYDS+fe7kVDSSvsPG41dw2GckHqmGAWnaJi1uVFvtbrFOY7z\n4BqRRnRPmT2ZWpwkv+xoyhi0Dck4K6Q0qdQlEsmmMOPFohptiXsl1wNolJq3PyVR\nfP38fcR5wX3GkuzLZIHRZOTAzUTlpv379ERVLSkCgYAK83FEi5PYXPmNZ4cpK5wm\n8PlznaXCTELj+qSd8o34QaGVA/vI9vXUF+lhAiONDCesIkxjaUgqOlU11q9H00Iw\nHcGq92V/J88qIrpHQh4Hp675ZIpr722OwIl3cl18jhFAnV2oAuGgjzrHo8v5RC4z\nsNceNy3/rOP5oOfIxKkLVg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "api-node-multihub-bot@multihub-5b105.iam.gserviceaccount.com",
+  "client_id": "107654481597535183815",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/api-node-multihub-bot%40multihub-5b105.iam.gserviceaccount.com"
+}

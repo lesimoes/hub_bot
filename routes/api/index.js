@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 router.use('/client', require('./client'));
 router.use('/intent', require('./intent'));
+router.use('/chat', require('./chat'));
 
 router.use((err, req, res, next) => {
   if (err.name === 'ValidationError') {
