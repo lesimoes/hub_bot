@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "77870980-0046-4793-8ca4-6ef055243fda",
+		"name": "MultiHub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Chat",
+			"description": null,
+			"item": [
+				{
+					"name": "http://localhost:3000/api/pluri/intent/new_intent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2FhNWFjNGE2MDE2NTc3OTdhY2E1ODIiLCJhbGlhcyI6InBsdXJpIiwiaWF0IjoxNTU4Mjk0NTQ4LCJleHAiOjE1NTgzMDMxODh9.bRsU5vE8w6imn7U4Wgh63RKqh7RSDOQs79ndjYtD-qo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"message\":\"Quale\",\n\t\"role\":\"cliente\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/pluri/chat/sendMsg/6jhdNzpuJGUDGrKQYoqy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"pluri",
+								"chat",
+								"sendMsg",
+								"6jhdNzpuJGUDGrKQYoqy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/pluri/chat/create",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/pluri/chat/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"pluri",
+								"chat",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Adm",
+			"description": "",
+			"item": [
+				{
+					"name": "http://localhost:3000/adm/auth",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2FhNWFjNGE2MDE2NTc3OTdhY2E1ODIiLCJpYXQiOjE1NTgxODc0MDAsImV4cCI6MTU1ODI3MzgwMH0.vzMKXVfPIh2tmNFDeXOSV8sTf0DIK9CLIfqicUKXdY0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":\"pluri\",\n\t\"password\":\"tendi123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/adm/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"adm",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bot",
+			"description": "",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/pluri/intent/5caa60ad3113f27b1fc6bde8",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2FhNWFjNGE2MDE2NTc3OTdhY2E1ODIiLCJpYXQiOjE1NTgxODc0MDAsImV4cCI6MTU1ODI3MzgwMH0.vzMKXVfPIh2tmNFDeXOSV8sTf0DIK9CLIfqicUKXdY0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2FhNWFjNGE2MDE2NTc3OTdhY2E1ODIiLCJpYXQiOjE1NTQ2ODU0MzUsImV4cCI6MTU1NDc3MTgzNX0.FyKuBjmq-1P-24VfLnyRv4zKHmO8N6TeyxNt-N8KuT8",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"active\": true,\n    \"sentences\": [\"Oi\", \"Quale\"],\n    \"responses\": [\"Ollar\", \"Belesma\", \"Tendiiiiii\"],\n    \"title\": \"Second\"\n  }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/pluri/intent/5caa60ad3113f27b1fc6bde8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"pluri",
+								"intent",
+								"5caa60ad3113f27b1fc6bde8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/pluri/intent/list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2FhNWFjNGE2MDE2NTc3OTdhY2E1ODIiLCJpYXQiOjE1NTgxODc0MDAsImV4cCI6MTU1ODI3MzgwMH0.vzMKXVfPIh2tmNFDeXOSV8sTf0DIK9CLIfqicUKXdY0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2FhNWFjNGE2MDE2NTc3OTdhY2E1ODIiLCJpYXQiOjE1NTQ2ODU0MzUsImV4cCI6MTU1NDc3MTgzNX0.FyKuBjmq-1P-24VfLnyRv4zKHmO8N6TeyxNt-N8KuT8",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"active\": true,\n    \"sentences\": [\"Oi\", \"Quale\"],\n    \"responses\": [\"Ollar\", \"Belesma\", \"Tendiiiiii\"],\n    \"title\": \"Second\"\n  }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/pluri/intent/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"pluri",
+								"intent",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
