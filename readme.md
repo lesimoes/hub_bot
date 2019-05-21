@@ -12,6 +12,9 @@
 
 ### Routes
 
+
+HOST: https://multbot.herokuapp.com
+
 *** Generate a token ***
 </br>
 url: `http://localhost:3000/adm/auth`</br>
