@@ -15,6 +15,12 @@ router.use('/bot', require('./bot'));
 
 const serviceAccount = require('../../../multihub-5b105-aecec3c7ef9b.json');
 
+router.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 router.use(bodyParser.json());
 
 router.get('/create', async (req, res, next) => {
