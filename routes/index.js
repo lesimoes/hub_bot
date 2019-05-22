@@ -5,6 +5,12 @@ const ClientSchema = require('../schema/client.schema');
 
 const Client = mongoose.model('Client');
 
+router.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 router.use('/adm', require('./api/adm'));
 
 // Valided Token
