@@ -19,7 +19,7 @@
         firestore.collection("pluri/6jhdNzpuJGUDGrKQYoqy/messages").orderBy('datetime').onSnapshot(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             if(doc.data().role == "cliente" || doc.data().role == "client"){
-            var txt1 = '<div class="incoming_msg"><div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div><div class="received_msg"><div class="received_withd_msg"><p>'+doc.data().message+'</p><span class="time_date"> '+new Date(doc.data().datetime).toLocaleDateString("pt-BR")+' | '+new Date(doc.data().datetime).toLocaleTimeString("pt-BR") +'</span></div></div></div>'; 
+            var txt1 = '<div class="incoming_msg"><div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div><div class="received_msg"><div class="received_withd_msg"><p>'+doc.data().message+'</p><span class="time_date"> '+new Date(doc.data().datetime).toLocaleDateString("pt-BR")+' | '+new Date(doc.data().datetime).toLocaleTimeString("pt-BR") +'</span></div></div></div>';
             $(".msg_history").append(txt1);
             }else{
             var txt1 = '<div class="outgoing_msg"><div class="sent_msg"><p>'+doc.data().message+'</p><span class="time_date">'+new Date(doc.data().datetime).toLocaleDateString("pt-BR")+' | '+new Date(doc.data().datetime).toLocaleTimeString("pt-BR") +'</span> </div></div>'
@@ -30,15 +30,15 @@
   }
 
 
-  /*SendMsg = function(){
-  fetch('https://calm-dawn-84403.herokuapp.com/api/pluri/chat/sendMsg/6jhdNzpuJGUDGrKQYoqy', {
+  SendMsg = function(){
+  fetch('https://multbot.herokuapp.com/api/pluri/chat/sendMsg/6jhdNzpuJGUDGrKQYoqy', {
     method: 'post',
     mode: 'cors',
     headers: {
     'Access-Control-Allow-Origin':'*',
-    'Authorization': '"Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2UwZDFlY2ZhMzQ1MzI5OTAzZGNlMWYiLCJhbGlhcyI6InBsdXJpIiwiaWF0IjoxNTU4NDg2ODcxLCJleHAiOjE1NTg0OTU1MTF9.pl884mBfBPnQ_JXkvP7IxIhLUjuOzNqPAHDKD6T2IiI',
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2UwZDFlY2ZhMzQ1MzI5OTAzZGNlMWYiLCJhbGlhcyI6InBsdXJpIiwiaWF0IjoxNTU4NTc4NzY2LCJleHAiOjE1NTg1ODc0MDZ9.h-K9Tu0h1BvPOSIAvLOm0oOIFsOZHU-pU9bsZpaxWbc',
     },
-   
+
     body: JSON.stringify({
       message: "aeeee",
     role: "cliente"
@@ -49,8 +49,7 @@
     console.log(data);
   });
 }
-*/
+
 
 
   getRealtimeUpdates();
-
