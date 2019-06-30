@@ -5,11 +5,7 @@ const mongoose = require('mongoose');
 const Bostinho = require('../../../bot/model/Bostinho.js');
 const fireChat = require('../../../lib/firechat');
 
-const IntentSchema = require('../../../schema/intent.schema');
-const ClientSchema = require('../../../schema/client.schema');
-
 const Client = mongoose.model('Client');
-const Intent = mongoose.model('Intent');
 
 router.use('/bot', require('./bot'));
 
@@ -34,8 +30,20 @@ router.get('/create', async (req, res, next) => {
   }
 });
 
+router.get('/:id', async (req, res, next) => {
+  const account = req.app.alias;
+  try {
+    const result = await fireChat.getMessages({ account, key: req.params.id });
+
+    res.status(200).send({ data: JSON.stringify(result) });
+  } catch (error) {
+    return res.status(400).send(error);
+  }
+});
+
 router.post('/sendMsg/:id', async (req, res, next) => {
   const account = req.app.alias;
+
   try {
     const client = await Client.findOne({ _id: req.app._id }).lean();
 
@@ -45,7 +53,6 @@ router.post('/sendMsg/:id', async (req, res, next) => {
     };
 
     const result = await fireChat.getValue({ account, key: req.params.id });
-
     fireChat.sendMsg({
       account,
       key: req.params.id,
@@ -66,7 +73,7 @@ router.post('/sendMsg/:id', async (req, res, next) => {
 
     return res.status(200).send({ status: 'Messagesss sent successfully!' });
   } catch (error) {
-    console.log(error);
+    console.log(error)
     return res.status(400).send(error);
   }
 });
