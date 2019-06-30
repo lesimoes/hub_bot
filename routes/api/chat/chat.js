@@ -3,12 +3,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const admin = require('firebase-admin');
 
-const IntentSchema = require('../../schema/intent.schema');
-const ClientSchema = require('../../schema/client.schema');
-
-const Client = mongoose.model('Client');
-const Intent = mongoose.model('Intent');
-
 router.use(bodyParser.json());
 
 const serviceAccount = require('../../multihub-5b105-aecec3c7ef9b.json');
@@ -30,6 +24,8 @@ router.get('/create', async (req, res, next) => {
     return res.status(400).send(error);
   }
 });
+
+
 
 router.post('/sendMsg/:id', async (req, res, next) => {
   const account = req.app.alias;

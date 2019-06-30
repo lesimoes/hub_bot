@@ -50,7 +50,7 @@ url: `http://localhost:3000/api/pluri/chat/create`
 *** Create new message on chat_id ***
 </br>
 method `POST`
-url: `http://localhost:3000/api/pluri/chat/create`
+url: `http://localhost:3000/api/pluri/chat/sendMsg/{chatId}`
 body:`{
 	"message": "my message",
 	"role": "client"
