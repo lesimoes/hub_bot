@@ -4,6 +4,7 @@ router.use('/client', require('./client'));
 router.use('/intent', require('./intent'));
 router.use('/chat', require('./chat'));
 
+// eslint-disable-next-line max-params
 router.use((err, req, res, next) => {
   if (err.name === 'ValidationError') {
     return res.status(422).json({
