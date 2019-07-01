@@ -1,4 +1,3 @@
-const admin = require('firebase-admin');
 const router = require('express').Router();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -8,8 +7,6 @@ const fireChat = require('../../../lib/firechat');
 const Client = mongoose.model('Client');
 
 router.use('/bot', require('./bot'));
-
-const serviceAccount = require('../../../multihub-5b105-aecec3c7ef9b.json');
 
 router.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -73,7 +70,7 @@ router.post('/sendMsg/:id', async (req, res, next) => {
 
     return res.status(200).send({ status: 'Messagesss sent successfully!' });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.status(400).send(error);
   }
 });
