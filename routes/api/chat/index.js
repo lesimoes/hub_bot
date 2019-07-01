@@ -60,7 +60,6 @@ router.post('/sendMsg/:id', async (req, res, next) => {
     if (result.data().bot) {
       const bostinho = new Bostinho(req.app.client.intents);
       const answer = bostinho.getAnswer(req.app.message);
-      console.log(req.app.message)
       fireChat.sendMsg({
         account,
         key: req.params.id,
