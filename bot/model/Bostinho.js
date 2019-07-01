@@ -7,7 +7,11 @@ class Bostinho {
   }
 
   getAnswer (text) {
-    const result = this.engine(text, this.database);
+    let result = this.engine(text, this.database);
+    if (typeof result === 'string') {
+      result = [];
+      result.push({ responses: ['Default'] });
+    }
     return result[0].responses;
   }
 
