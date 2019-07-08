@@ -1,8 +1,14 @@
 require('dotenv').config();
+const http = require('http');
 const express = require('express');
 
-const app = express();
+// eslint-disable-next-line no-multi-assign
+const app = module.exports.app = express();
 
+const server = http.createServer(app);
+const socket = require('socket.io');
+
+app.set('socket.io', socket);
 app.use(require('./routes'));
 
 app.use((req, res, next) => {
