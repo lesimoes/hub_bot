@@ -38,6 +38,25 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+router.get('/last/:id', async (req, res, next) => {
+  const account = req.app.alias;
+  try {
+    const result = await fireChat.getLastMessage({
+      account,
+      key: req.params.id,
+    });
+
+    // const io = req.app.get('socket.io');
+    // console.log(io)
+    // io.emit('chat message', JSON.stringify(result));
+
+    res.status(200).send({ data: JSON.stringify(result) });
+  } catch (error) {
+    console.log(error)
+    return res.status(400).send(error);
+  }
+});
+
 router.post('/sendMsg/:id', async (req, res, next) => {
   const account = req.app.alias;
 

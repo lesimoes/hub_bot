@@ -25,8 +25,6 @@ router.get('/create', async (req, res, next) => {
   }
 });
 
-
-
 router.post('/sendMsg/:id', async (req, res, next) => {
   const account = req.app.alias;
   try {
