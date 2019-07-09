@@ -45,7 +45,6 @@ router.get('/last/:id', async (req, res, next) => {
       account,
       key: req.params.id,
     });
-
     res.status(200).send({ data: JSON.stringify(result) });
   } catch (error) {
     console.log(error)

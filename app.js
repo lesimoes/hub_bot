@@ -1,14 +1,27 @@
 require('dotenv').config();
+const http = require('http');
 const express = require('express');
 
-const app = express();
+// eslint-disable-next-line no-multi-assign
+const app = module.exports.app = express();
+const server = http.createServer(app);
 
+const socket = require('socket.io')(server);
+
+app.set('socket.io', socket);
 app.use(require('./routes'));
 
 app.use((req, res, next) => {
   const err = new Error('Route not found');
   err.status = 404;
   next(err);
+});
+
+socket.on('connection', () => {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', (data) => {
+    console.log(data);
+  });
 });
 
 // app.use((err, req, res, next) => {
@@ -19,4 +32,4 @@ app.use((req, res, next) => {
 //   }});
 // });
 
-app.listen(process.env.PORT, () => console.log('Hell on ', process.env.PORT));
+server.listen(process.env.PORT, () => console.log('Hell on ', process.env.PORT));
