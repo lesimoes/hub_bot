@@ -4,9 +4,9 @@ const express = require('express');
 
 // eslint-disable-next-line no-multi-assign
 const app = module.exports.app = express();
-
 const server = http.createServer(app);
-const socket = require('socket.io');
+
+const socket = require('socket.io')(server);
 
 app.set('socket.io', socket);
 app.use(require('./routes'));
@@ -17,6 +17,13 @@ app.use((req, res, next) => {
   next(err);
 });
 
+socket.on('connection', () => {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', (data) => {
+    console.log(data);
+  });
+});
+
 // app.use((err, req, res, next) => {
 //   res.status(err.status || 500);
 //   res.json({'errors': {
@@ -25,4 +32,4 @@ app.use((req, res, next) => {
 //   }});
 // });
 
-app.listen(process.env.PORT, () => console.log('Hell on ', process.env.PORT));
+server.listen(process.env.PORT, () => console.log('Hell on ', process.env.PORT));
