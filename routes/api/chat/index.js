@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Bostinho = require('../../../bot/model/Bostinho.js');
 const fireChat = require('../../../lib/firechat');
-
+const socket = require('../../../socket');
 const Client = mongoose.model('Client');
 
 router.use('/bot', require('./bot'));
@@ -81,7 +81,8 @@ router.post('/sendMsg/:id', async (req, res, next) => {
         role: 'bot',
       });
     }
-
+    console.log(socket)
+    socket.test(req.body.message);
     return res.status(200).send({ status: 'Messagesss sent successfully!' });
   } catch (error) {
     console.log(error);

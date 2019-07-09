@@ -1,19 +1,26 @@
-var app = require('express')();
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+const Server = require('socket.io');
 
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
-});
+let io;
 
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
+const init = (server) => {
+  io = new Server(server);
+};
+
+const sendMsg = (msg) => {
+  io.on('connection', () => {
+    io.emit('news', { hello: msg });
+    io.on('my other event', (data) => {
+      console.log(data);
+    });
   });
-});
+}
 
+const test = (msg) => {
+  io.emit('news', {hello: msg})
+};
 
-
-http.listen(3001, function(){
-  console.log('listening on *:3001');
-});
+module.exports = {
+  init,
+  sendMsg,
+  test,
+};

@@ -1,12 +1,11 @@
 require('dotenv').config();
 const http = require('http');
 const express = require('express');
+const socket = require('./socket/index');
 
 // eslint-disable-next-line no-multi-assign
 const app = module.exports.app = express();
 const server = http.createServer(app);
-
-const socket = require('socket.io')(server);
 
 app.set('socket.io', socket);
 app.use(require('./routes'));
@@ -17,12 +16,8 @@ app.use((req, res, next) => {
   next(err);
 });
 
-socket.on('connection', () => {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', (data) => {
-    console.log(data);
-  });
-});
+socket.init(server);
+socket.sendMsg('ddasdsad')
 
 // app.use((err, req, res, next) => {
 //   res.status(err.status || 500);
