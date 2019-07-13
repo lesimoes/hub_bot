@@ -21,7 +21,7 @@ router.get('/create', async (req, res, next) => {
 
   try {
     const result = await fireChat.create({ account });
-    return result;
+    return res.status(200).send({ chat_id : result.id });
   } catch (error) {
     return res.status(400).send(error);
   }
