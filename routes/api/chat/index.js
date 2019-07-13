@@ -27,6 +27,23 @@ router.get('/create', async (req, res, next) => {
   }
 });
 
+router.get('/getQueue/:id', async (req, res, next) => {
+  const account = req.app.alias;
+
+  try {
+    const result = await fireChat.getQueue({ account, queue: req.params.id });
+    result.forEach(function(snap) {
+        let userStatus = snap.val();
+        if(userStatus.state == "online" ){
+          return res.status(200).send({ status : 'online' });
+        }
+    });
+    return res.status(200).send({ status : 'offline' });
+  } catch (error) {
+    return res.status(400).send(error);
+  }
+});
+
 router.get('/:id', async (req, res, next) => {
   const account = req.app.alias;
   try {

@@ -56,6 +56,9 @@ body:`{
 	"role": "client"
 }`
 
-
+*** get Queue status online/offline ***
+</br>
+method `GET`
+url: `http://localhost:3000/api/pluri/chat/getQueue/{queue}`
 
 :tada:
