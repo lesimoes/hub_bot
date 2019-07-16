@@ -46,6 +46,14 @@ body:`{
 method `GET`
 url: `http://localhost:3000/api/pluri/chat/create`
 
+*** Create new chat_id (with extra params) ***
+</br>
+method `POST`
+url: `http://localhost:3000/api/pluri/chat/create`
+body:`{
+	"protocol": "123113",
+	"queue": "1"
+}`
 
 *** Create new message on chat_id ***
 </br>

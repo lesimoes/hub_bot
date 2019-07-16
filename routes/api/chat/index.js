@@ -27,6 +27,18 @@ router.get('/create', async (req, res, next) => {
   }
 });
 
+router.post('/create', async (req, res, next) => {
+  const account = req.app.alias;
+  const extras = req.body ? req.body : null;
+
+  try {
+    const result = await fireChat.create({ account , extras: extras });
+    return res.status(200).send({ chat_id : result.id });
+  } catch (error) {
+    return res.status(400).send(error);
+  }
+});
+
 router.get('/getQueue/:id', async (req, res, next) => {
   const account = req.app.alias;
 
