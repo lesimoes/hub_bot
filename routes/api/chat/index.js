@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const { check, validationResult } = require('express-validator');
 const Bostinho = require('../../../bot/model/Bostinho.js');
 const fireChat = require('../../../lib/firechat');
+const v = require('../../../lib/validation');
 const socket = require('../../../socket');
 const Client = mongoose.model('Client');
 
@@ -27,12 +29,12 @@ router.get('/create', async (req, res, next) => {
   }
 });
 
-router.post('/create', async (req, res, next) => {
+router.post('/create', v.chatCreate, async (req, res, next) => {
   const account = req.app.alias;
-  const extras = req.body ? req.body : null;
+  const body = req.body;
 
   try {
-    const result = await fireChat.create({ account , extras: extras });
+    const result = await fireChat.create({ account , body });
     return res.status(200).send({ chat_id : result.id });
   } catch (error) {
     console.log(error);
