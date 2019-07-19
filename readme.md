@@ -51,8 +51,12 @@ url: `http://localhost:3000/api/pluri/chat/create`
 method `POST`
 url: `http://localhost:3000/api/pluri/chat/create`
 body:`{
-	"protocol": "123113",
-	"queue": "1"
+    "protocol": "123113",
+    "name": "1",
+    "email": "fabio.viana@gmail.com",
+    "reason": "Outros",
+    "queue": 1,
+    "channelId": 1
 }`
 
 *** Create new message on chat_id ***
