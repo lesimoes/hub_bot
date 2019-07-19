@@ -35,6 +35,7 @@ router.post('/create', async (req, res, next) => {
     const result = await fireChat.create({ account , extras: extras });
     return res.status(200).send({ chat_id : result.id });
   } catch (error) {
+    console.log(error);
     return res.status(400).send(error);
   }
 });
@@ -55,6 +56,21 @@ router.get('/getQueue/:id', async (req, res, next) => {
     return res.status(400).send(error);
   }
 });
+
+router.post('/createQueue', async (req, res, next) => {
+  const account = req.app.alias;
+  const protocol = req.body.protocol;
+  const queue   = req.body.queue;
+  const key     = req.body.key;
+
+  try {
+    const result = await fireChat.createQueue({ account, queue, key, protocol });
+    return res.status(200).send({ status: 'Queue created successfully!' });
+  } catch (error) {
+    return res.status(400).send(error);
+  }
+});
+
 
 router.get('/:id', async (req, res, next) => {
   const account = req.app.alias;
@@ -93,12 +109,18 @@ router.post('/sendMsg/:id', async (req, res, next) => {
     };
 
     const result = await fireChat.getValue({ account, key: req.params.id });
-    fireChat.sendMsg({
+
+    const newData = {
       account,
       key: req.params.id,
       message: req.body.message,
       role: req.body.role,
-    });
+    };
+
+    fireChat.sendMsg(newData);
+
+    // Insert in firebase
+    const resultFb = await fireChat.createFirebase(newData);
 
     if (result.data().bot) {
       const bostinho = new Bostinho(req.app.client.intents);

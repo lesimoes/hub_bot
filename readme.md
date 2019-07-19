@@ -69,4 +69,14 @@ body:`{
 method `GET`
 url: `http://localhost:3000/api/pluri/chat/getQueue/{queue}`
 
+*** create Queue ***
+</br>
+method `POST`
+url: `http://localhost:3000/api/pluri/chat/createQueue`
+body:`{
+	"protocol": "00005",
+	"queue": "1",
+	"key": "11111"
+}`
+
 :tada:
