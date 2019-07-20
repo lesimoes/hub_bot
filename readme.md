@@ -59,6 +59,13 @@ body:`{
     "channelId": 1
 }`
 
+
+*** finish chat_id ***
+</br>
+method `GET`
+url: `http://localhost:3000/api/pluri/chat/finish/{chatId}`
+
+
 *** Create new message on chat_id ***
 </br>
 method `POST`
